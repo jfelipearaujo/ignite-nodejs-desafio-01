@@ -1,0 +1,56 @@
+@baseUrl=http://localhost:3333
+@taskId=2520d7d8-5516-460c-be7e-a9abfd929119
+
+### Create a new task
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+
+{
+  "title": "Task title",
+  "description": "Task description"
+}
+
+### Get all tasks
+GET {{baseUrl}}/tasks
+Content-Type: application/json
+
+### Get a task by title
+GET {{baseUrl}}/tasks?search=title
+Content-Type: application/json
+
+### Get a task by description
+GET {{baseUrl}}/tasks?search=description
+Content-Type: application/json
+
+### Update all task information
+PUT {{baseUrl}}/tasks/{{taskId}}
+Content-Type: application/json
+
+{
+  "title": "Task new title",
+  "description": "Task new description"
+}
+
+### Update just the task title
+PUT {{baseUrl}}/tasks/{{taskId}}
+Content-Type: application/json
+
+{
+  "title": "Task new title again"
+}
+
+### Update just the task description
+PUT {{baseUrl}}/tasks/{{taskId}}
+Content-Type: application/json
+
+{
+  "description": "Task new description again"
+}
+
+### Delete a task
+DELETE {{baseUrl}}/tasks/{{taskId}}
+Content-Type: application/json
+
+### Complete a task
+PATCH {{baseUrl}}/tasks/{{taskId}}/complete
+Content-Type: application/json
